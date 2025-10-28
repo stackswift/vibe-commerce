@@ -59,7 +59,7 @@ export const CheckoutModal = ({ open, onClose, onSuccess, total, cartItems }: Ch
 
       // Prepare cart items for API
       const items = cartItems.map(item => ({
-        productId: item.id,
+        productId: item.productId,
         name: item.name,
         price: item.price,
         quantity: item.quantity,

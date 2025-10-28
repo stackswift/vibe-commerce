@@ -128,7 +128,7 @@ export const updateCartItem = async (req, res) => {
     const { productId } = req.params;
     const { quantity } = req.body;
 
-    if (quantity < 1) {
+    if (!quantity || quantity < 1) {
       return res.status(400).json({
         success: false,
         error: 'Quantity must be at least 1',
@@ -144,8 +144,9 @@ export const updateCartItem = async (req, res) => {
       });
     }
 
+    const parsedProductId = parseInt(productId);
     const itemIndex = cart.items.findIndex(
-      (item) => item.productId === parseInt(productId)
+      (item) => item.productId === parsedProductId
     );
 
     if (itemIndex === -1) {
@@ -155,7 +156,17 @@ export const updateCartItem = async (req, res) => {
       });
     }
 
-    cart.items[itemIndex].quantity = quantity;
+    // Validate the new quantity against product stock
+    const product = await Product.findOne({ id: parsedProductId });
+    if (product && product.stock < quantity) {
+      return res.status(400).json({
+        success: false,
+        error: 'Insufficient stock',
+        available: product.stock,
+      });
+    }
+
+    cart.items[itemIndex].quantity = parseInt(quantity);
     await cart.save();
 
     res.status(200).json({
@@ -193,8 +204,9 @@ export const removeFromCart = async (req, res) => {
       });
     }
 
+    const parsedProductId = parseInt(productId);
     const itemIndex = cart.items.findIndex(
-      (item) => item.productId === parseInt(productId)
+      (item) => item.productId === parsedProductId
     );
 
     if (itemIndex === -1) {

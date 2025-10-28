@@ -34,7 +34,7 @@ export const ShoppingCart = ({
       <h2 className="text-2xl font-bold text-foreground">Shopping Cart</h2>
       <div className="space-y-4">
         {items.map((item) => (
-          <div key={item.id} className="flex gap-4 p-4 bg-muted/50 rounded-lg">
+          <div key={item.productId} className="flex gap-4 p-4 bg-muted/50 rounded-lg">
             <img
               src={item.image}
               alt={item.name}
@@ -49,7 +49,7 @@ export const ShoppingCart = ({
                 <Button
                   variant="ghost"
                   size="icon"
-                  onClick={() => onRemove(item.id)}
+                  onClick={() => onRemove(item.productId)}
                   className="text-muted-foreground hover:text-destructive"
                 >
                   <X className="w-4 h-4" />
@@ -61,7 +61,7 @@ export const ShoppingCart = ({
                     variant="ghost"
                     size="icon"
                     className="h-8 w-8"
-                    onClick={() => onUpdateQuantity(item.id, Math.max(1, item.quantity - 1))}
+                    onClick={() => onUpdateQuantity(item.productId, Math.max(1, item.quantity - 1))}
                   >
                     <Minus className="w-3 h-3" />
                   </Button>
@@ -70,7 +70,7 @@ export const ShoppingCart = ({
                     variant="ghost"
                     size="icon"
                     className="h-8 w-8"
-                    onClick={() => onUpdateQuantity(item.id, item.quantity + 1)}
+                    onClick={() => onUpdateQuantity(item.productId, item.quantity + 1)}
                   >
                     <Plus className="w-3 h-3" />
                   </Button>
