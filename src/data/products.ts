@@ -43,11 +43,11 @@ export const products: Product[] = [
   },
   {
     id: 6,
-    name: "Silk Scarf",
-    price: 699,
-    category: "Accessories",
-    description: "Luxurious 100% silk scarf with vibrant print. Versatile accessory for any style.",
-    image: "https://images.unsplash.com/photo-1582731653256-e138d00b5e3b?w=800&q=80",
+    name: "Classic Hoodie",
+    price: 1299,
+    category: "Outerwear",
+    description: "Comfortable cotton-blend hoodie with adjustable drawstring. Perfect for casual wear and layering.",
+    image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800&q=80",
   },
   {
     id: 7,
