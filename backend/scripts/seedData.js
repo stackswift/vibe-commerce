@@ -61,7 +61,7 @@ const products = [
     price: 699,
     category: "Accessories",
     description: "Luxurious 100% silk scarf with vibrant print. Versatile accessory that can be worn multiple ways. Adds a pop of color to any ensemble.",
-    image: "https://images.unsplash.com/photo-1601924638867-4a2f0f6d0c0f?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1582731653256-e138d00b5e3b?w=800&q=80",
     stock: 40,
     featured: false,
   },
