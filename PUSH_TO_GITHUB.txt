@@ -19,7 +19,7 @@
    Repository name: vibe-commerce
    Description: Premium Fashion E-Commerce Platform - Full Stack MERN
    Visibility: ○ Public  (Recommended)
-   
+
 3. ⚠️ IMPORTANT: DO NOT check these boxes:
    ☐ Add a README file
    ☐ Add .gitignore
